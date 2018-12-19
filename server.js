@@ -38,9 +38,11 @@ var http = require('http')
 
     if(Math.random()>0.5){
       fs.writeFileSync('./db',newAmount)
-      response.setHeader('Content-Type', 'image/jpg')
+      response.setHeader('Content-Type', 'application/javascript')
       response.statusCode = 200
-      response.write(fs.readFileSync('./dog.jpg'))
+      response.write(
+      'amount.innerText = amount.innerText - 1'
+      )
     }else{
       response.statusCode = 400
       response.write('fail')
