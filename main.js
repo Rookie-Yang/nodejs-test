@@ -1,8 +1,13 @@
 
 
 button.addEventListener('click',function(e){
-  let n = amount.innerText
-  let number = parseInt(n,10)
-  let newNumber = number - 1
-  amount.innerText = newNumber
+ let image = document.createElement('img')
+ image.src = '/pay'
+ image.onload = function(){
+   alert('打钱成功')
+   amount.innerText = amount.innerText - 1
+ }
+ image.onerror = function(){
+   alert('打钱失败')
+ }
 })
