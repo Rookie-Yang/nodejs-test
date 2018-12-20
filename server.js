@@ -41,7 +41,11 @@ var http = require('http')
       response.setHeader('Content-Type', 'application/javascript')
       response.statusCode = 200
       response.write(
-      'amount.innerText = amount.innerText - 1'
+        '${query.callback}.call(undefined,"success")'
+        // '${query.callback}.call(undefined,{
+        //   "success":true,
+        //   "left":${newAmount}
+        // })'
       )
     }else{
       response.statusCode = 400
